@@ -38,6 +38,7 @@ export const createScenario = formValues => async dispatch => {
 export const deleteScenario = id => async dispatch => {
     await pfs.delete(`/scenarios/${id}`);
     dispatch({ type: DELETE_SCENARIO, payload: id });
+    history.push('/scenarios');
 };
 
 export const fetchCharacters = () => async dispatch => {

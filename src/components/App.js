@@ -10,6 +10,7 @@ import CharacterList from './characters/CharacterList';
 import CharacterEdit from './characters/CharacterEdit';
 import CharacterCreate from './characters/CharacterCreate';
 import CharacterDelete from './characters/CharacterDelete';
+import ScenarioDelete from './scenarios/ScenarioDelete';
 
 const App = () => {
     return (
@@ -22,6 +23,7 @@ const App = () => {
                         <Route path="/scenarios/new" component={ScenarioCreate} />
                         <Route path="/scenarios/:id" exact component={Scenario} />
                         <Route path="/scenarios/:id/edit" component={ScenarioEdit} />
+                        <Route path="/scenarios/:id/delete" component={ScenarioDelete} />
                         <Route path="/characters" exact component={CharacterList} />
                         <Route path="/characters/new" component={CharacterCreate} />
                         <Route path="/characters/:id/edit" component={CharacterEdit} />
