@@ -62,9 +62,12 @@ class ScenarioList extends Component {
     render() {
         return (
             <>
-                <select value={this.state.selectedSeason} onChange={this.handleSeasonSelect}>
-                    {this.buildSeasonSelector()}
-                </select>
+                <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                    <select value={this.state.selectedSeason} onChange={this.handleSeasonSelect}>
+                        {this.buildSeasonSelector()}
+                    </select>
+                    <Link className="ui button green" to="/scenarios/new">Create a new scenario</Link>
+                </div>
                 <table className="ui celled table">
                     <thead>
                         <tr className="single line">
