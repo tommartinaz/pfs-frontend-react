@@ -9,7 +9,7 @@ class CharacterEdit extends Component {
     }
 
     onSubmit = formValues => {
-        this.props.editCharacter({ ...formValues, playerId: 'db4f9f61-1d04-449b-a55c-1de1a3c451b5' }, this.props.match.params.id);
+        this.props.editCharacter(formValues, this.props.match.params.id);
     }
 
     onCancel = () => {

@@ -33,7 +33,9 @@ class CharacterList extends Component {
     render() {
         return (
             <>
-                <Link to="/characters/new" className="ui button green">Create new character</Link>
+                <div style={{display: 'flex', justifyContent: 'flex-end'}}>
+                    <Link to="/characters/new" className="ui button green">Create new character</Link>
+                </div>
                 <table className="ui celled table center aligned">
                     <thead>
                         <tr className="single line">

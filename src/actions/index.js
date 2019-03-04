@@ -52,7 +52,7 @@ export const fetchCharacter = id => async dispatch => {
 };
 
 export const createCharacter = formValues => async dispatch => {
-    const response = await pfs.post('/characters', formValues);
+    const response = await pfs.post('/characters', { ...formValues, playerId: '0f6799b7-e437-4ee4-a3bd-10bf66d4129d' });
     dispatch({ type: CREATE_CHARACTER, payload: response.data });
     history.push('/characters');
 }
