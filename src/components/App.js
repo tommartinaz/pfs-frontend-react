@@ -9,6 +9,7 @@ import history from '../history';
 import CharacterList from './characters/CharacterList';
 import CharacterEdit from './characters/CharacterEdit';
 import CharacterCreate from './characters/CharacterCreate';
+import CharacterDelete from './characters/CharacterDelete';
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                         <Route path="/characters" exact component={CharacterList} />
                         <Route path="/characters/new" component={CharacterCreate} />
                         <Route path="/characters/:id/edit" component={CharacterEdit} />
+                        <Route path="/characters/:id/delete" component={CharacterDelete} />
                     </Switch>
                 </>
             </Router>
