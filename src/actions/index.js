@@ -8,7 +8,8 @@ import {
     FETCH_CHARACTERS,
     FETCH_CHARACTER,
     EDIT_CHARACTER,
-    CREATE_CHARACTER
+    CREATE_CHARACTER,
+    DELETE_CHARACTER
 } from './types';
 import history from '../history';
 
@@ -58,5 +59,11 @@ export const createCharacter = formValues => async dispatch => {
 export const editCharacter = (formValues, id) => async dispatch => {
     const response = await pfs.put(`/characters/${id}`, formValues);
     dispatch({ type: EDIT_CHARACTER, payload: response.data });
+    history.push('/characters');
+}
+
+export const deleteCharacter = id => async dispatch => {
+    await pfs.delete(`/characters/${id}`);
+    dispatch({ type: DELETE_CHARACTER, payload: id });
     history.push('/characters');
 }
