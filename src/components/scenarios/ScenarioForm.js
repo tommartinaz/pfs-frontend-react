@@ -35,11 +35,6 @@ class ScenarioForm extends Component {
         this.props.onSubmit(formValues);
     }
 
-    // onCancelClick = () => {
-    //     console.log("CANCEL")
-    //     // TODO: route back one page
-    // }
-
     render() {
         const { handleSubmit, pristine, reset, invalid } = this.props;
         return (
