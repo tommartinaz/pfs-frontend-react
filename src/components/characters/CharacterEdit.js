@@ -12,10 +12,6 @@ class CharacterEdit extends Component {
         this.props.editCharacter(formValues, this.props.match.params.id);
     }
 
-    onCancel = () => {
-        console.log("CANCEL", this.props);
-    }
-
     render() {
         const { character } = this.props;
         if(!character) {
