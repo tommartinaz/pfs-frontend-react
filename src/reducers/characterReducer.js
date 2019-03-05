@@ -18,7 +18,6 @@ export default (state = {}, action) => {
         case CREATE_CHARACTER:
             return { ...state, [action.payload.id]: action.payload };
         case DELETE_CHARACTER:
-            console.log("REDUCER", action.payload)
             return _.omit(state, action.payload);
         default:
             return state;
