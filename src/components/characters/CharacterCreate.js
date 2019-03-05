@@ -5,7 +5,7 @@ import CharacterForm from './CharacterForm';
 
 const CharcterCreate = props => {
     const onSubmit = formValues => {
-        props.createCharacter({ ...formValues, playerId: 'db4f9f61-1d04-449b-a55c-1de1a3c451b5' });
+        props.createCharacter({ ...formValues, playerId: 'bd14ca5e-12a7-41ee-a161-597ec87a8204' });
     };
     return (
         <div>

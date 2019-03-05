@@ -12,10 +12,6 @@ class ScenarioEdit extends Component {
         this.props.editScenario(formValues, this.props.match.params.id);
     }
 
-    onCancel = () => {
-        console.log("CANCEL", this.props);
-    }
-
     render() {
         const { scenario } = this.props;
         if(!scenario) {

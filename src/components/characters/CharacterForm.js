@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import { races, classes, alignments } from '../../data';
+import { fetchAlignments } from '../../actions/alignments';
+import { fetchClasses } from '../../actions/classes';
+import { fetchRaces } from '../../actions/races';
 
 class CharacterForm extends Component {
+    componentDidMount() {
+        this.props.fetchAlignments();
+        this.props.fetchClasses();
+        this.props.fetchRaces();
+    }
     renderInput = ({ input, label }) => {
         return (
             <div className="field">
@@ -15,13 +23,14 @@ class CharacterForm extends Component {
     renderSelector = ({ input, label, selector }) => {
         const list = selector.map(el => {
             return (
-                <option key={el} value={el}>{el}</option>
+                <option key={el.id} value={el.id}>{el.name}</option>
             )
         })
         return (
             <div className="field">
                 <label>{label}</label>
                 <select {...input}>
+                    <option value='' />
                     {list}
                 </select>
             </div>
@@ -32,7 +41,7 @@ class CharacterForm extends Component {
     }
 
     render() {
-        const { handleSubmit, pristine, reset } = this.props;
+        const { handleSubmit, pristine, reset, alignments, races, classes } = this.props;
         return (
             <form className="ui form" onSubmit={handleSubmit(this.onSubmit)}>
                 <div className="fields">
@@ -52,13 +61,13 @@ class CharacterForm extends Component {
                 </div>
                 <div className="fields">
                     <div className="three wide field">
-                        <Field name="race" component={this.renderSelector} label='Race' selector={races} />
+                        <Field name="raceId" component={this.renderSelector} label='Race' selector={races} />
                     </div>
                     <div className="three wide field">
-                        <Field name="characterClass" component={this.renderSelector} label='Class' selector={classes} />
+                        <Field name="classId" component={this.renderSelector} label='Class' selector={classes} />
                     </div>
                     <div className="three wide field">
-                        <Field name="alignment" component={this.renderSelector} label='Alignment' selector={alignments} />
+                        <Field name="alignmentId" component={this.renderSelector} label='Alignment' selector={alignments} />
                     </div>
                 </div>
                 <button className="ui button primary" disabled={pristine}>Save</button>
@@ -68,6 +77,12 @@ class CharacterForm extends Component {
     }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+    alignments: Object.values(state.alignments),
+    races: Object.values(state.races),
+    classes: Object.values(state.classes)
+})
+
+export default connect(mapStateToProps, { fetchAlignments, fetchClasses, fetchRaces })(reduxForm({
     form: 'characterForm'
-})(CharacterForm);
+})(CharacterForm));
