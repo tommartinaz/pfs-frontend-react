@@ -5,7 +5,7 @@ import CharacterForm from './CharacterForm';
 
 const CharcterCreate = props => {
     const onSubmit = formValues => {
-        props.createCharacter({ ...formValues, playerId: 'bd14ca5e-12a7-41ee-a161-597ec87a8204' });
+        props.createCharacter({ ...formValues });
     };
     return (
         <div>
@@ -17,4 +17,10 @@ const CharcterCreate = props => {
     );
 };
 
-export default connect(null, { createCharacter })(CharcterCreate);
+const mapStateToProps = state => {
+    return {
+        userId: state.auth.userId
+    }
+}
+
+export default connect(mapStateToProps, { createCharacter })(CharcterCreate);

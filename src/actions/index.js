@@ -51,8 +51,8 @@ export const fetchCharacter = id => async dispatch => {
     dispatch({ type: FETCH_CHARACTER, payload: response.data });
 };
 
-export const createCharacter = formValues => async dispatch => {
-    const response = await pfs.post('/characters', { ...formValues, playerId: '0f6799b7-e437-4ee4-a3bd-10bf66d4129d' });
+export const createCharacter = formValues => async (dispatch, getState) => {
+    const response = await pfs.post('/characters', { ...formValues, playerId: getState().auth.userId });
     dispatch({ type: CREATE_CHARACTER, payload: response.data });
     history.push('/characters');
 };
