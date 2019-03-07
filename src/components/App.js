@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import ScenarioList from './scenarios/ScenarioList';
 import ScenarioEdit from './scenarios/ScenarioEdit';
 import ScenarioCreate from './scenarios/ScenarioCreate';
@@ -19,6 +19,7 @@ const App = () => {
                 <>
                     <Header />
                     <Switch>
+                        <Redirect path="/" exact to="/characters" />
                         <Route path="/scenarios" exact component={ScenarioList} />
                         <Route path="/scenarios/new" component={ScenarioCreate} />
                         <Route path="/scenarios/:id" exact component={Scenario} />
