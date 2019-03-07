@@ -13,3 +13,6 @@ export const DELETE_CHARACTER = 'DELETE_CHARACTER';
 export const FETCH_ALIGNMENTS = 'FETCH_ALIGNMENTS';
 export const FETCH_RACES = 'FETCH_RACES';
 export const FETCH_CLASSES = 'FETCH_CLASSES';
+
+export const SIGN_IN = 'SIGN_IN';
+export const SIGN_OUT = 'SIGN_OUT';

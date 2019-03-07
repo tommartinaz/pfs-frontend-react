@@ -76,7 +76,8 @@ const mapStateToProps = state => ({
     characters: Object.values(state.characters),
     alignments: state.alignments,
     races: state.races,
-    classes: state.classes
+    classes: state.classes,
+    userId: state.auth.userId
 });
 
 export default connect(mapStateToProps, { fetchCharacters, fetchAlignments, fetchClasses, fetchRaces })(CharacterList);
